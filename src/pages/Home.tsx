@@ -51,8 +51,8 @@ const capabilities = [
   {
     icon: FileCheck2,
     title: "Regulator-mapped evidence",
-    body: "We map the logs you already collect from servers, firewalls and switches to the controls of PISF 2026, SBP Cyber Shield and PTA CTDISR, and show the gaps before an audit does.",
-    tag: "Evidence and gap reports",
+    body: "We map the logs you already collect from servers, firewalls and switches to the controls of PISF 2026, SBP Cyber Shield, PTA CTDISR and Saudi NCA ECC, prove how many months of logs you hold, and show the gaps before an audit does.",
+    tag: "Evidence, retention and gap reports",
   },
   {
     icon: KeyRound,
@@ -78,7 +78,7 @@ const fanout = [
   { name: "PISF 2026", duty: "SIEM operation and audit under the PKCERT SOC structure" },
   { name: "SBP Cyber Shield", duty: "Monitoring coverage for the maturity assessment" },
   { name: "PTA CTDISR 2025", duty: "Custom use case; real-time critical alert to the national telecom SOC" },
-  { name: "NCA ECC · next", duty: "2-12-3: continuous monitoring of event logs", next: true },
+  { name: "NCA ECC (Saudi)", duty: "2-12-3: continuous monitoring of event logs, kept for 12 months" },
 ];
 
 const sources = ["Servers and endpoints", "Firewalls and routers", "Switches and legacy appliances", "Applications and directories"];
@@ -265,7 +265,7 @@ const ConsoleCard = () => (
 
 const EventFanout = () => (
   <figure
-    aria-label="Illustrative example: one detection, repeated failed logins on the VPN gateway (MITRE ATT&CK T1110), is mapped to the duty it evidences under PISF 2026, SBP Cyber Shield, PTA CTDISR 2025 and, next, NCA ECC."
+    aria-label="Illustrative example: one detection, repeated failed logins on the VPN gateway (MITRE ATT&CK T1110), is mapped to the duty it evidences under PISF 2026, SBP Cyber Shield, PTA CTDISR 2025 and NCA ECC."
     className="mt-10 grid items-center lg:grid-cols-[minmax(0,380px)_4rem_minmax(0,1fr)]"
   >
     <div
@@ -293,15 +293,9 @@ const EventFanout = () => (
       {fanout.map((f) => (
         <li
           key={f.name}
-          className={`grid gap-1 sm:grid-cols-[170px_minmax(0,1fr)] sm:items-center sm:gap-5 rounded-xl px-5 py-4 ${
-            f.next
-              ? "border border-dashed border-[color:var(--rule2)] bg-[color:var(--surf2)]/40"
-              : "bg-[color:var(--surf)] shadow-[0_12px_28px_-18px_rgba(43,29,22,0.35)]"
-          }`}
+          className="grid gap-1 sm:grid-cols-[170px_minmax(0,1fr)] sm:items-center sm:gap-5 rounded-xl px-5 py-4 bg-[color:var(--surf)] shadow-[0_12px_28px_-18px_rgba(43,29,22,0.35)]"
         >
-          <span className={`font-heading text-base font-bold ${f.next ? "text-[color:var(--ink3)]" : "text-[color:var(--ink)]"}`}>
-            {f.name}
-          </span>
+          <span className="font-heading text-base font-bold text-[color:var(--ink)]">{f.name}</span>
           <span className="font-body text-[15px] text-[color:var(--ink2)]">{f.duty}</span>
         </li>
       ))}
@@ -465,7 +459,11 @@ const NigehbaanSystems = () => {
             </div>
           ))}
           <div className="flex flex-col justify-center gap-2 p-6">
-            <p className={monoLabel}>Coming next</p>
+            <p className={monoLabel}>In development</p>
+            <p className="font-body text-sm leading-relaxed text-[color:var(--ink2)]">
+              An alert review and incident register: who reviewed each alert, how it was classified
+              and when it was escalated.
+            </p>
             <p className="font-body text-sm leading-relaxed text-[color:var(--ink2)]">
               Optional AI triage on your own hardware: each alert labelled real, noise or escalate.
               The analyst decides.
@@ -477,8 +475,8 @@ const NigehbaanSystems = () => {
       <Section id="regulation" tone="light" eyebrow="Regulatory evidence" title="One event. Evidence for every regulator you answer to.">
         <div className="max-w-3xl">
           <p className={bodyText}>
-            Regulators now require a SIEM, a year of logs and evidence that monitoring works. We map
-            each event to the control it evidences, so the gap report exists before the auditor
+            Regulators expect a SIEM, retained logs and evidence that monitoring works; Saudi NCA,
+            for example, sets 12 months of event logs. We map each event to the control it evidences, so the gap report exists before the auditor
             arrives: which systems evidence a control, and which are silent.
           </p>
         </div>

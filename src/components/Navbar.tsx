@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 const CONTACT_URL = "https://jb-agiledev.com/contact";
 
 const navLinks = [
-  { label: "Capabilities", href: "/#capabilities" },
   { label: "Regulation", href: "/#regulation" },
+  { label: "Capabilities", href: "/#capabilities" },
   { label: "Architecture", href: "/#architecture" },
   { label: "Built in", href: "/#built-in" },
   { label: "Ownership", href: "/#ownership" },
@@ -35,7 +35,7 @@ const Navbar = () => {
     >
       <div className="container mx-auto flex items-center justify-between px-6 py-4">
         <Link to="/" className="flex items-center" onClick={() => setMobileOpen(false)}>
-          <span className="font-heading text-xl font-bold tracking-wide text-text-light">Nigehbaan</span>
+          <span className="font-heading text-xl font-bold tracking-wide text-text-light">Nigehbaan Systems</span>
         </Link>
 
         {/* Desktop nav */}

@@ -43,21 +43,21 @@ const detections = [
 
 const capabilities = [
   {
+    icon: FileCheck2,
+    title: "Regulator-mapped evidence",
+    body: "We provide evidence reports that map the logs you already collect from servers, firewalls and switches to the controls of PTA CTDISR, PISF 2026, SBP Cyber Shield and Saudi NCA ECC, show how many months of logs you hold, and show the gaps before an audit does.",
+    tag: "Evidence, retention and gap reports",
+  },
+  {
     icon: ShieldCheck,
     title: "Inside your boundary",
     body: "Runs on your infrastructure, including disconnected and classified networks. Rule and vulnerability updates arrive on controlled media you approve.",
     tag: "Air-gap capable",
   },
   {
-    icon: FileCheck2,
-    title: "Regulator-mapped evidence",
-    body: "We map the logs you already collect from servers, firewalls and switches to the controls of PISF 2026, SBP Cyber Shield, PTA CTDISR and Saudi NCA ECC, prove how many months of logs you hold, and show the gaps before an audit does.",
-    tag: "Evidence, retention and gap reports",
-  },
-  {
     icon: KeyRound,
     title: "Built to be owned",
-    body: "Technology transfer of source, build pipeline, runbooks and engineer training is available on request, subject to licence review, so your team can run and extend the platform without us.",
+    body: "Technology transfer of source, build pipeline, runbooks and engineer training is in scoping, subject to licence review, so your team can run and extend the platform without us.",
     tag: "No lock-in",
   },
   {
@@ -75,9 +75,9 @@ const capabilities = [
 ];
 
 const fanout = [
+  { name: "PTA CTDISR 2025", duty: "Logs kept 12 months in Pakistan; real-time critical alerts to the national telecom SOC" },
   { name: "PISF 2026", duty: "SIEM operation and audit under the PKCERT SOC structure" },
   { name: "SBP Cyber Shield", duty: "Monitoring coverage for the maturity assessment" },
-  { name: "PTA CTDISR 2025", duty: "Custom use case; real-time critical alert to the national telecom SOC" },
   { name: "NCA ECC (Saudi)", duty: "2-12-3: continuous monitoring of event logs, kept for 12 months" },
 ];
 
@@ -265,7 +265,7 @@ const ConsoleCard = () => (
 
 const EventFanout = () => (
   <figure
-    aria-label="Illustrative example: one detection, repeated failed logins on the VPN gateway (MITRE ATT&CK T1110), is mapped to the duty it evidences under PISF 2026, SBP Cyber Shield, PTA CTDISR 2025 and NCA ECC."
+    aria-label="Illustrative example: one detection, repeated failed logins on the VPN gateway (MITRE ATT&CK T1110), is mapped to the duty it evidences under PTA CTDISR 2025, PISF 2026, SBP Cyber Shield and NCA ECC."
     className="mt-10 grid items-center lg:grid-cols-[minmax(0,380px)_4rem_minmax(0,1fr)]"
   >
     <div
@@ -408,26 +408,27 @@ const NigehbaanSystems = () => {
                 نگہبان
               </span>
             </div>
-            <Eyebrow>Sovereign security monitoring and compliance</Eyebrow>
+            <Eyebrow>Audit evidence for security monitoring duties</Eyebrow>
             <h1 className="font-heading text-4xl lg:text-[3.4rem] lg:leading-[1.08] font-extrabold text-[color:var(--ink)] mb-6">
               Proof Before{" "}
               <span className="whitespace-nowrap text-[color:var(--acc)]">the Audit.</span>
             </h1>
             <p className="font-body text-lg lg:text-xl leading-relaxed text-[color:var(--ink2)] mb-8 max-w-2xl">
-              A sovereign security monitoring and compliance platform that runs inside your defended
-              boundary, air-gapped or connected. It turns the telemetry you already collect into audit
-              evidence, never calls home, and is built to be handed to your team, source code included.
+              Your regulator expects a SIEM, retained logs and proof that monitoring works. We turn the
+              logs you already collect into evidence your auditor can read: which controls are
+              evidenced, how many months of logs you hold, and which sources have gone silent. It runs
+              inside your boundary and never calls home.
             </p>
             <div className="flex flex-wrap gap-3 mb-8">
               <a href="https://jb-agiledev.com/contact" className={btnPrimary}>
                 Request a briefing
               </a>
-              <a href="#architecture" className={btnQuiet}>
-                See the architecture
+              <a href="#regulation" className={btnQuiet}>
+                See how evidence works
               </a>
             </div>
             <ul className="flex flex-wrap gap-x-6 gap-y-2 font-body text-sm text-[color:var(--ink2)]">
-              {["Nothing needs to leave your boundary", "Air-gap capable", "Open rules, open storage"].map((t) => (
+              {["Mapped to your regulator's controls", "Retention and gaps shown", "Runs inside your boundary"].map((t) => (
                 <li key={t} className="flex items-center gap-2">
                   <Check className="h-4 w-4 text-[color:var(--held)]" aria-hidden="true" />
                   {t}
@@ -445,6 +446,23 @@ const NigehbaanSystems = () => {
           </motion.div>
         </div>
       </div>
+
+      <Section id="regulation" tone="light" eyebrow="Regulatory evidence" title="One event. Evidence for every regulator you answer to.">
+        <div className="max-w-3xl">
+          <p className={bodyText}>
+            Regulators expect a SIEM, retained logs and evidence that monitoring works; PTA CTDISR,
+            for example, requires 12 months of logs kept in Pakistan and a yearly audit by a
+            PTA-listed auditor. We provide a mapping of each event to the control it evidences, so the
+            gap report exists before the auditor arrives: which systems evidence a control, and which
+            are silent.
+          </p>
+        </div>
+        <EventFanout />
+        <p className="font-body text-sm text-[color:var(--ink3)] mt-10 max-w-3xl">
+          Mappings show evidence against controls. They are not a certification: whether you comply
+          remains your auditor's judgement.
+        </p>
+      </Section>
 
       <Section id="capabilities" tone="dark" bg="bg-[#2B1D16]" eyebrow="Capabilities" title="Monitoring you control, evidence your auditor can read.">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-4">
@@ -470,21 +488,6 @@ const NigehbaanSystems = () => {
             </p>
           </div>
         </div>
-      </Section>
-
-      <Section id="regulation" tone="light" eyebrow="Regulatory evidence" title="One event. Evidence for every regulator you answer to.">
-        <div className="max-w-3xl">
-          <p className={bodyText}>
-            Regulators expect a SIEM, retained logs and evidence that monitoring works; Saudi NCA,
-            for example, sets 12 months of event logs. We map each event to the control it evidences, so the gap report exists before the auditor
-            arrives: which systems evidence a control, and which are silent.
-          </p>
-        </div>
-        <EventFanout />
-        <p className="font-body text-sm text-[color:var(--ink3)] mt-10 max-w-3xl">
-          Mappings show evidence against controls. They are not a certification: whether you comply
-          remains your auditor's judgement.
-        </p>
       </Section>
 
       <Section id="architecture" tone="dark" eyebrow="Architecture" title="Open components, wholly inside your perimeter.">
@@ -531,8 +534,8 @@ const NigehbaanSystems = () => {
           <div className="space-y-4">
             <p className={bodyText}>
               Most SIEM vendors sell a subscription you can never leave. For federal divisions,
-              defence establishments and strategic enterprises, technology transfer is available on
-              request, subject to licence review: your engineers receive everything needed to run and
+              defence establishments and strategic enterprises, technology transfer is in scoping,
+              subject to licence review: your engineers would receive everything needed to run and
               extend the platform themselves.
             </p>
             <p className="font-body text-sm text-[color:var(--ink3)]">
@@ -565,8 +568,8 @@ const NigehbaanSystems = () => {
             Request a briefing.
           </h2>
           <p className="font-body text-lg leading-relaxed text-[color:var(--ink2)] max-w-xl">
-            Our engineers walk your team through the architecture and deployment inside your
-            boundary. Held under NDA on request.
+            We walk your team through how evidence for your regulator is produced and how it runs
+            inside your boundary. Held under NDA on request.
           </p>
           <div className="flex flex-wrap items-center gap-x-6 gap-y-3 mt-8">
             <a href="https://jb-agiledev.com/contact" className={btnPrimary}>

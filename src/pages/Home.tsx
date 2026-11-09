@@ -410,8 +410,8 @@ const NigehbaanSystems = () => {
             </div>
             <Eyebrow>Sovereign security monitoring and compliance</Eyebrow>
             <h1 className="font-heading text-4xl lg:text-[3.4rem] lg:leading-[1.08] font-extrabold text-[color:var(--ink)] mb-6">
-              Indigenous Defence.{" "}
-              <span className="text-[color:var(--acc)]">Total Control.</span>
+              Proof Before{" "}
+              <span className="whitespace-nowrap text-[color:var(--acc)]">the Audit.</span>
             </h1>
             <p className="font-body text-lg lg:text-xl leading-relaxed text-[color:var(--ink2)] mb-8 max-w-2xl">
               A sovereign security monitoring and compliance platform that runs inside your defended
